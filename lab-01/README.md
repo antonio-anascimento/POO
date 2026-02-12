@@ -26,3 +26,4 @@ Salvar as credencias do PAT em cache facilitam pois evita a necessidade de ficar
 git config --global credential.helper 'cache --timeout=3600'
 ```
 ## Qual a diferença entre git merge e git rebase?
+Ambos comandos servem para mesclar alterações de uma branch em outra, mas a principal diferença deles é que o merge pega os commits de uma branch e junta com os commmits de outra, gerando um novo commit e preservando as historias e suas ramificações, é ideal para trabalhos em conjunto, pois evita o conflito. ja o rebase aplica os commits da branch atual em cima da branch desejada, deixando o historico linear, só é recomendado para projetos de apenas um desenvolvedor, pois pode acabar causando conflitos e ficando dificil de distinguir quando cada coisa aconteceu.
