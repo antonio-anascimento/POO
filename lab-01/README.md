@@ -20,6 +20,9 @@ O PAT funciona como uma senha temporaria, é geralmente usada por quem acessa o 
 6. Clique em Generate new token.
 7. Escolha o nome do token, prazo e suas permissões.
 8. Clique em Generate token.
-
 ### Salvar em cache as credenciais do PAT
+Salvar as credencias do PAT em cache facilitam pois evita a necessidade de ficar inserindo toda vez que quiser realizar um comando pull ou push. Segue abaixo o comando para salvar por 1h.
+```bash
+git config --global credential.helper 'cache --timeout=3600'
+```
 ## Qual a diferença entre git merge e git rebase?
