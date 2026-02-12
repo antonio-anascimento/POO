@@ -1,2 +1,2 @@
-# POO
-Repositorio para armazenar as atividades da disciplina de Programação Orientada a Objetos
+# Atividades práticas da disciplina de programação orientada a objetos.
+
