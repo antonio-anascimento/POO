@@ -19,7 +19,7 @@ public class EstacaoDoAno {
         } else if (mes.equals("setembro") || mes.equals("outubro") || mes.equals("novembro") || mes.equals("dezembro") && dia >= 22){
             IO.println("A estação é Primavera");
         } else {
-            IO.println("A estação é Verão");
+            IO.println("A estação é Verão ");
         }
     }
 }
