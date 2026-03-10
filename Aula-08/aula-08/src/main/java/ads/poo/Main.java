@@ -3,11 +3,19 @@ package ads.poo;
 public class Main {
     static void main() {
 
-      lampada a = new lampada();
+      Caneta bic = new Caneta();
 
-      a.ligarEDesligar();
-      IO.println(a.isLigada());
-      a.ligarEDesligar();
-      IO.println(a.isLigada());
+      bic.setColor("Azul");
+      bic.setNivelTinta(100);
+
+      String cor = bic.getCor();
+      double nivel = bic.getNivelTinta();
+
+        IO.println(bic.isAberta());
+        IO.println(bic.getNivelTinta());
+        bic.abrirFecharCaneta();
+        bic.setNivelTinta(0.00);
+        IO.println(bic.desenhar(1,1,1,2));
+        IO.println(bic.getNivelTinta());
     }
 }
