@@ -9,7 +9,8 @@ public class Caneta {
     public String desenhar(int xA, int yA, int xB, int yB){
         if (aberta){
             double distancia = Math.sqrt(Math.pow((xB-xA),2) + Math.pow((yB-yA),2));
-            if ((nivelTinta -= distancia * 0.01) >= 0) {
+            double tintaNecessaria = distancia * 0.01;
+            if (nivelTinta > tintaNecessaria) {
                 return String.format("Desenhei %.2f cm na cor %s", distancia, cor);
             } else {
                 return "Tinta insuficiente";
