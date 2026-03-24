@@ -9,6 +9,8 @@ public class Main {
 
         IO.println(a.calcularDistancia(b));
 
+        IO.println(b.toString());
+
 
     }
 }

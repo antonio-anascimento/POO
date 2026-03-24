@@ -28,11 +28,8 @@ public class Ponto {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Ponto{");
-        sb.append("x=").append(x);
-        sb.append(", y=").append(y);
-        sb.append('}');
-        return sb.toString();
+        String s = String.format("(%d, %d)", x, y);
+        return s;
     }
 
     public double calcularDistancia(Ponto b){
