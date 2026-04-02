@@ -44,7 +44,9 @@ public class App {
 
     }
 
-
+    void sair(){
+        return;
+    }
 
     static void main(String[] args) {
         App app = new App();
@@ -63,5 +65,6 @@ public class App {
             opcao =  sc.nextInt();
             app.menu(opcao);
         } while (opcao!=5);
+
     }
 }
