@@ -14,34 +14,67 @@ public class App {
 
     void menu(int opcao){
         switch (opcao){
-            case 1: -> {cadastrar();}
-            case 2: -> {listarTodas();}
-            case 3: -> {depositar();}
-            case 4: -> {sacar();}
-            case 5: -> {sair();}
+            case 1 -> cadastrar();
+            case 2 -> listarTodas();
+            case 3 -> depositar();
+            case 4 -> sacar();
+            case 5 -> sair();
         }
     }
 
     void cadastrar(){
 
-        String nrConta = IO.readln("Número da conta");
-        String nome = IO.readln("Nome do titular");
+        String nrConta = IO.readln("Número da conta: ");
+        String nome = IO.readln("Nome do titular: ");
         double saldo = Double.parseDouble(IO.readln("Saldo inicial: "));
 
-        Conta conta = new Conta(nrConta, nome, saldo);
+        Conta contaNova = new Conta(nrConta, nome, saldo);
+        this.contas.add(contaNova);
     }
 
-    ArrayList<Conta> listarTodas(){
-        return contas;
+    void listarTodas(){
+        IO.println(contas.toString());
+        return;
     }
 
     void depositar(){
-        double valor = Double.parseDouble(IO.readln("Valor Desejado: "));
 
+        String nrConta = IO.readln("Número da conta: ");
+        double valorDeposito = Double.parseDouble(IO.readln("Valor Desejado: "));
+        if(valorDeposito>0){
+
+            for(Conta conta : contas){
+                if(conta.getNrConta().equals(nrConta)){
+                    conta.depositar(valorDeposito);
+                    IO.println("Deposito Realizado com sucesso");
+                    return;
+                }
+            }
+        } else {
+            IO.println("Não foi possivel realizar o Deposito");
+        }
     }
 
-    String sacar(double valor){
+    void sacar(){
+        String nrContaDesejada = IO.readln("Número da conta: ");
+        double valorSaque = Double.parseDouble(IO.readln("Valor Desejado: "));
 
+        if(valorSaque>0){
+            for(Conta conta : contas){
+                if(conta.getNrConta().equals(nrContaDesejada)){
+                    if(conta.getSaldo() >= valorSaque){
+                        conta.sacar(valorSaque);
+                        IO.println( "Saque realizado com sucesso");
+                        return;
+                    } else {
+                        IO.println("Não foi possível realizar o saque, saldo insuficiente");
+                        return;
+                    }
+                }
+            }
+        } else {
+            IO.println("Não foi possível realizar o saque");
+        }
     }
 
     void sair(){
