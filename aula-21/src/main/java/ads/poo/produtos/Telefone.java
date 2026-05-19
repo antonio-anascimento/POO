@@ -25,4 +25,24 @@ public class Telefone {
                 ", dimensao=" + dimensao +
                 '}';
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public int getNumSerie() {
+        return numSerie;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public Dimensao getDimensao() {
+        return dimensao;
+    }
 }

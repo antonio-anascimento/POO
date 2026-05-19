@@ -22,4 +22,8 @@ public class TelefoneSemFio extends Telefone {
                 ", distanciaOperacao=" + distanciaOperacao +
                 '}';
     }
+
+    public double getFrequencia() {
+        return frequencia;
+    }
 }
