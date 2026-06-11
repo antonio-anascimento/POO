@@ -2,7 +2,7 @@ package ads.poo.cartas;
 
 import edu.princeton.cs.algs4.Draw;
 
-public class CartaGrafica extends Cartas{
+public class CartaGrafica extends Cartas implements IElementos{
 
     private boolean estaParaCima;
     private Double x;
@@ -18,10 +18,8 @@ public class CartaGrafica extends Cartas{
     public void desenhar(Draw d){
         if(estaParaCima){
             d.picture(x, y, "cartas/" +  super.getValorSigla() + getNaipeSigla()+".png");
-            d.show();
         } else{
             d.picture(x, y, "cartas/" + "fundoa.png");
-            d.show();
         }
     }
 

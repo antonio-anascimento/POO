@@ -1,9 +1,7 @@
 package ads.poo;
 
 
-import ads.poo.cartas.CartaGrafica;
-import ads.poo.cartas.Naipes;
-import ads.poo.cartas.ValorCartas;
+import ads.poo.cartas.*;
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
 
@@ -12,7 +10,7 @@ import java.util.ArrayList;
 public class App implements DrawListener {
 
         private Draw draw;
-        private ArrayList<CartaGrafica> baralho;
+        private ArrayList<IElementos> elementos;
 
         public App(){
             this.draw = new Draw();
@@ -24,13 +22,11 @@ public class App implements DrawListener {
             this.draw.enableDoubleBuffering();
             this.draw.addListener(this);
 
-//            this.carta = new CartaGrafica(Naipes.ESPADAS, ValorCartas.AS, true, 100.0, 100.0);
-//            this.carta.desenhar(this.draw);
 
             int x = 35;
             int y = 300;
 
-            this.baralho = new ArrayList<>();
+            this.elementos = new ArrayList<>();
             for(Naipes n : Naipes.values()){
                 for (ValorCartas v : ValorCartas.values()){
                     CartaGrafica carta = new CartaGrafica(
@@ -41,25 +37,31 @@ public class App implements DrawListener {
                             (double) y
                     );
 
-                    baralho.add(carta);
+                    elementos.add(carta);
                     x+=23;
                 }
             }
 
-            for (CartaGrafica c : baralho){
-                c.desenhar(this.draw);
+            this.elementos.add(new DadosGui(100, 400));
+            this.elementos.add(new DadosGui(200, 400));
+
+
+            for (IElementos e : elementos){
+                e.desenhar(this.draw);
             }
+            draw.show();
         }
 
     @Override
     public void mouseClicked(double x, double y) {
-        for (CartaGrafica carta : baralho) {
-            if (carta.clicouDentro(x, y)) {
-                carta.desenhar(this.draw);
+        for (IElementos e : elementos) {
+            if (e.clicouDentro(x, y)) {
                 break;
             }
         }
-
+        for (IElementos e : elementos){
+            e.desenhar(this.draw);
+        }
         draw.show();
     }
 
