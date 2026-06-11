@@ -27,8 +27,8 @@ public class App implements DrawListener {
 //            this.carta = new CartaGrafica(Naipes.ESPADAS, ValorCartas.AS, true, 100.0, 100.0);
 //            this.carta.desenhar(this.draw);
 
-            int x = 100;
-            int y = 100;
+            int x = 35;
+            int y = 300;
 
             this.baralho = new ArrayList<>();
             for(Naipes n : Naipes.values()){
@@ -42,7 +42,7 @@ public class App implements DrawListener {
                     );
 
                     baralho.add(carta);
-                    x+=20;
+                    x+=23;
                 }
             }
 
@@ -50,14 +50,18 @@ public class App implements DrawListener {
                 c.desenhar(this.draw);
             }
         }
-//
-//    @Override
-//    public void mouseClicked(double x, double y) {
-//        if(this.carta.clicouDentro(x, y)){
-//            this.carta.desenhar(this.draw);
-//        }
-//
-//    }
+
+    @Override
+    public void mouseClicked(double x, double y) {
+        for (CartaGrafica carta : baralho) {
+            if (carta.clicouDentro(x, y)) {
+                carta.desenhar(this.draw);
+                break;
+            }
+        }
+
+        draw.show();
+    }
 
     static void main() {
         App app = new App();
